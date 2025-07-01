@@ -22,7 +22,7 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #003366 0%, #0059b3 100%);
             color: white;
             padding: 1rem 0;
             position: fixed;
@@ -66,7 +66,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80');
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=2100&q=80');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -99,7 +99,7 @@
 
         .cta-button {
             display: inline-block;
-            background: #ff6b6b;
+            background: #ff9300;
             color: white;
             padding: 1rem 2.5rem;
             text-decoration: none;
@@ -111,7 +111,7 @@
         }
 
         .cta-button:hover {
-            background: #ff5252;
+            background: #ff7b00;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
         }
@@ -426,11 +426,6 @@
     <footer>
         <div class="footer-content">
             <div class="logo">WMI Group</div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-xing"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
             <p>&copy; 2025 WMI Group. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
@@ -454,10 +449,10 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.background = 'rgba(0, 51, 102, 0.95)';
                 header.style.backdropFilter = 'blur(10px)';
             } else {
-                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.background = 'linear-gradient(135deg, #003366 0%, #0059b3 100%)';
                 header.style.backdropFilter = 'none';
             }
         });
