@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WMI Group - Innovation durch Qualität</title>
+    <title>WMI Group - Innovation through Quality</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -91,13 +91,13 @@
             background-clip: text;
         }
 
-        .nav-links {
+        .nav-center {
             display: flex;
             list-style: none;
             gap: 2.5rem;
         }
 
-        .nav-links a {
+        .nav-center a {
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
@@ -106,7 +106,7 @@
             transition: all 0.3s ease;
         }
 
-        .nav-links a::after {
+        .nav-center a::after {
             content: '';
             position: absolute;
             width: 0;
@@ -117,8 +117,43 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
+        .nav-center a:hover::after {
             width: 100%;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .language-switcher button {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .language-switcher button.active {
+            background: var(--gradient-accent);
+            opacity: 1;
+            color: white;
+        }
+
+        .language-switcher button:hover {
+            opacity: 1;
         }
 
         /* Hero Section */
@@ -605,7 +640,7 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
+            .nav-center {
                 display: none;
             }
 
@@ -630,6 +665,16 @@
 
             .product-highlights {
                 grid-template-columns: 1fr;
+            }
+
+            .language-switcher {
+                padding: 0.3rem 0.5rem;
+                gap: 0.2rem;
+            }
+
+            .language-switcher button {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.8rem;
             }
         }
 
@@ -687,12 +732,16 @@
     <header id="header">
         <nav>
             <div class="logo">WMI Group</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Über uns</a></li>
-                <li><a href="#brands">Unsere Marken</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+            <ul class="nav-center">
+                <li><a href="#home" data-translate="nav.home">Home</a></li>
+                <li><a href="#about" data-translate="nav.about">About us</a></li>
+                <li><a href="#brands" data-translate="nav.brands">Our Brands</a></li>
+                <li><a href="#contact" data-translate="nav.contact">Contact</a></li>
             </ul>
+            <div class="language-switcher">
+                <button onclick="switchLanguage('en')" id="lang-en" class="active">EN</button>
+                <button onclick="switchLanguage('de')" id="lang-de">DE</button>
+            </div>
         </nav>
     </header>
 
@@ -701,16 +750,16 @@
         <div class="parallax-element parallax-circle"></div>
         <div class="parallax-element parallax-square"></div>
         <div class="hero-content">
-            <h1 data-aos="fade-up" data-aos-delay="200" class="floating">Innovation durch Qualität</h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">Die WMI Group verbindet visionäre Marken mit nachhaltigen Lösungen und erschafft Produkte, die das Leben bereichern.</p>
+            <h1 data-aos="fade-up" data-aos-delay="200" class="floating" data-translate="hero.title">Innovation through Quality</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400" data-translate="hero.subtitle">WMI Group connects visionary brands with sustainable solutions and creates products that enrich life.</p>
             <div class="cta-container" data-aos="fade-up" data-aos-delay="600">
                 <a href="#brands" class="cta-button">
                     <i class="fas fa-rocket"></i>
-                    Unsere Marken entdecken
+                    <span data-translate="hero.cta1">Discover Our Brands</span>
                 </a>
                 <a href="#contact" class="cta-button cta-secondary">
                     <i class="fas fa-envelope"></i>
-                    Kontakt aufnehmen
+                    <span data-translate="hero.cta2">Get in Touch</span>
                 </a>
             </div>
         </div>
@@ -719,14 +768,14 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Über die WMI Group</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Österreichische Unternehmensgruppe mit Fokus auf Innovation & nachhaltige Partnerschaften</p>
+            <h2 class="section-title" data-aos="fade-up" data-translate="about.title">About WMI Group</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-translate="about.subtitle">Austrian company group focused on innovation & sustainable partnerships</p>
             
             <div class="about-grid">
                 <div class="about-text" data-aos="fade-right">
-                    <h3>Qualität & Vertrauen</h3>
-                    <p>Die WMI Group bündelt die Stärken innovativer Marken und schafft dadurch nachhaltige Werte für Kunden, Partner und Investoren.</p>
-                    <p>Unsere Priorität liegt in langfristigen Partnerschaften und der kontinuierlichen Entwicklung zukunftsweisender Lösungen, die echten Mehrwert schaffen.</p>
+                    <h3 data-translate="about.heading">Quality & Trust</h3>
+                    <p data-translate="about.text1">WMI Group combines the strengths of innovative brands and creates sustainable value for customers, partners and investors.</p>
+                    <p data-translate="about.text2">Our priority lies in long-term partnerships and the continuous development of forward-thinking solutions that create real added value.</p>
                     
                     <div class="about-features">
                         <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
@@ -734,8 +783,8 @@
                                 <i class="fas fa-lightbulb"></i>
                             </div>
                             <div>
-                                <h4>Innovation</h4>
-                                <p>Zukunftsweisende Lösungen</p>
+                                <h4 data-translate="features.innovation">Innovation</h4>
+                                <p data-translate="features.innovation.desc">Forward-thinking solutions</p>
                             </div>
                         </div>
                         <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
@@ -743,8 +792,8 @@
                                 <i class="fas fa-handshake"></i>
                             </div>
                             <div>
-                                <h4>Partnerschaft</h4>
-                                <p>Langfristige Beziehungen</p>
+                                <h4 data-translate="features.partnership">Partnership</h4>
+                                <p data-translate="features.partnership.desc">Long-term relationships</p>
                             </div>
                         </div>
                         <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
@@ -752,14 +801,14 @@
                                 <i class="fas fa-leaf"></i>
                             </div>
                             <div>
-                                <h4>Nachhaltigkeit</h4>
-                                <p>Verantwortung für die Zukunft</p>
+                                <h4 data-translate="features.sustainability">Sustainability</h4>
+                                <p data-translate="features.sustainability.desc">Responsibility for the future</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="about-image" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Unser Team bei der Arbeit">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Our team at work">
                 </div>
             </div>
         </div>
@@ -768,8 +817,8 @@
     <!-- Brands Section -->
     <section id="brands" class="brands">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Unsere Marken</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Innovative Lösungen für den modernen Haushalt</p>
+            <h2 class="section-title" data-aos="fade-up" data-translate="brands.title">Our Brands</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-translate="brands.subtitle">Innovative solutions for the modern household</p>
             
             <div class="brand-showcase" data-aos="fade-up" data-aos-delay="400">
                 <div class="brand-grid">
@@ -778,30 +827,30 @@
                         <p class="brand-tagline">Freshness at the push of a button</p>
                     </div>
                     <div class="brand-content">
-                        <h4>Revolutionäre Vakuum-Technologie</h4>
-                        <p>Seal it! ist unsere innovative Marke für nachhaltige Vakuumierlösungen. Mit dem EcoSeal Pro vakuumieren Sie Lebensmittel direkt im Glas – umweltfreundlich, schnell und effektiv.</p>
-                        <p>Das Herzstück: Der EcoSeal Pro verlängert die Frische von Lebensmitteln um das 3-5-fache, reduziert Lebensmittelverschwendung und ersetzt herkömmliche Plastik-Vakuumiermethoden.</p>
+                        <h4 data-translate="sealit.heading">Revolutionary Vacuum Technology</h4>
+                        <p data-translate="sealit.text1">Seal it! is our innovative brand for sustainable vacuum sealing solutions. With the EcoSeal Pro, you vacuum seal food directly in glass - environmentally friendly, fast and effective.</p>
+                        <p data-translate="sealit.text2">The core: The EcoSeal Pro extends the freshness of food by 3-5 times, reduces food waste and replaces conventional plastic vacuum sealing methods.</p>
                         
                         <div class="product-highlights">
                             <div class="highlight-item" data-aos="zoom-in" data-aos-delay="600">
                                 <i class="fas fa-clock"></i>
-                                <h5>30 Sekunden</h5>
-                                <p>Vakuumierung pro Glas</p>
+                                <h5 data-translate="highlights.time">30 Seconds</h5>
+                                <p data-translate="highlights.time.desc">Vacuum sealing per jar</p>
                             </div>
                             <div class="highlight-item" data-aos="zoom-in" data-aos-delay="700">
                                 <i class="fas fa-recycle"></i>
-                                <h5>100% nachhaltig</h5>
-                                <p>Wiederverwendbare Gläser</p>
+                                <h5 data-translate="highlights.sustainable">100% sustainable</h5>
+                                <p data-translate="highlights.sustainable.desc">Reusable jars</p>
                             </div>
                             <div class="highlight-item" data-aos="zoom-in" data-aos-delay="800">
                                 <i class="fas fa-chart-line"></i>
-                                <h5>5x länger</h5>
-                                <p>Haltbarkeit verlängert</p>
+                                <h5 data-translate="highlights.freshness">5x longer</h5>
+                                <p data-translate="highlights.freshness.desc">Extended shelf life</p>
                             </div>
                         </div>
                         
                         <a href="https://sealit.shop/" target="_blank" class="brand-link" data-aos="fade-up" data-aos-delay="900">
-                            <span>Seal it! entdecken</span>
+                            <span data-translate="sealit.link">Discover Seal it!</span>
                             <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
@@ -813,20 +862,20 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Lassen Sie uns sprechen</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Interessiert an einer Partnerschaft? Wir freuen uns auf Ihre Nachricht.</p>
+            <h2 class="section-title" data-aos="fade-up" data-translate="contact.title">Let's Talk</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-translate="contact.subtitle">Interested in a partnership? We look forward to your message.</p>
             
             <div class="contact-grid">
                 <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-envelope"></i>
-                    <h3>E-Mail</h3>
+                    <h3 data-translate="contact.email">Email</h3>
                     <p><a href="mailto:info@wmi-group.at">info@wmi-group.at</a></p>
                 </div>
                 
                 <div class="contact-item" data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-map-marker-alt"></i>
-                    <h3>Adresse</h3>
-                    <p>Hofgasse 5<br>2201 Seyring, Österreich</p>
+                    <h3 data-translate="contact.address">Address</h3>
+                    <p>Hofgasse 5<br>2201 Seyring, Austria</p>
                 </div>
             </div>
         </div>
@@ -836,19 +885,152 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">WMI Group</div>
-            <p>&copy; 2025 WMI Group. Alle Rechte vorbehalten.</p>
+            <p data-translate="footer.copyright">&copy; 2025 WMI Group. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Language translations
+        const translations = {
+            en: {
+                "nav.home": "Home",
+                "nav.about": "About us",
+                "nav.brands": "Our Brands",
+                "nav.contact": "Contact",
+                "hero.title": "Innovation through Quality",
+                "hero.subtitle": "WMI Group connects visionary brands with sustainable solutions and creates products that enrich life.",
+                "hero.cta1": "Discover Our Brands",
+                "hero.cta2": "Get in Touch",
+                "about.title": "About WMI Group",
+                "about.subtitle": "Austrian company group focused on innovation & sustainable partnerships",
+                "about.heading": "Quality & Trust",
+                "about.text1": "WMI Group combines the strengths of innovative brands and creates sustainable value for customers, partners and investors.",
+                "about.text2": "Our priority lies in long-term partnerships and the continuous development of forward-thinking solutions that create real added value.",
+                "features.innovation": "Innovation",
+                "features.innovation.desc": "Forward-thinking solutions",
+                "features.partnership": "Partnership",
+                "features.partnership.desc": "Long-term relationships",
+                "features.sustainability": "Sustainability",
+                "features.sustainability.desc": "Responsibility for the future",
+                "brands.title": "Our Brands",
+                "brands.subtitle": "Innovative solutions for the modern household",
+                "sealit.heading": "Revolutionary Vacuum Technology",
+                "sealit.text1": "Seal it! is our innovative brand for sustainable vacuum sealing solutions. With the EcoSeal Pro, you vacuum seal food directly in glass - environmentally friendly, fast and effective.",
+                "sealit.text2": "The core: The EcoSeal Pro extends the freshness of food by 3-5 times, reduces food waste and replaces conventional plastic vacuum sealing methods.",
+                "highlights.time": "30 Seconds",
+                "highlights.time.desc": "Vacuum sealing per jar",
+                "highlights.sustainable": "100% sustainable",
+                "highlights.sustainable.desc": "Reusable jars",
+                "highlights.freshness": "5x longer",
+                "highlights.freshness.desc": "Extended shelf life",
+                "sealit.link": "Discover Seal it!",
+                "contact.title": "Let's Talk",
+                "contact.subtitle": "Interested in a partnership? We look forward to your message.",
+                "contact.email": "Email",
+                "contact.address": "Address",
+                "footer.copyright": "© 2025 WMI Group. All rights reserved."
+            },
+            de: {
+                "nav.home": "Home",
+                "nav.about": "Über uns",
+                "nav.brands": "Unsere Marken",
+                "nav.contact": "Kontakt",
+                "hero.title": "Innovation durch Qualität",
+                "hero.subtitle": "Die WMI Group verbindet visionäre Marken mit nachhaltigen Lösungen und erschafft Produkte, die das Leben bereichern.",
+                "hero.cta1": "Unsere Marken entdecken",
+                "hero.cta2": "Kontakt aufnehmen",
+                "about.title": "Über die WMI Group",
+                "about.subtitle": "Österreichische Unternehmensgruppe mit Fokus auf Innovation & nachhaltige Partnerschaften",
+                "about.heading": "Qualität & Vertrauen",
+                "about.text1": "Die WMI Group bündelt die Stärken innovativer Marken und schafft dadurch nachhaltige Werte für Kunden, Partner und Investoren.",
+                "about.text2": "Unsere Priorität liegt in langfristigen Partnerschaften und der kontinuierlichen Entwicklung zukunftsweisender Lösungen, die echten Mehrwert schaffen.",
+                "features.innovation": "Innovation",
+                "features.innovation.desc": "Zukunftsweisende Lösungen",
+                "features.partnership": "Partnerschaft",
+                "features.partnership.desc": "Langfristige Beziehungen",
+                "features.sustainability": "Nachhaltigkeit",
+                "features.sustainability.desc": "Verantwortung für die Zukunft",
+                "brands.title": "Unsere Marken",
+                "brands.subtitle": "Innovative Lösungen für den modernen Haushalt",
+                "sealit.heading": "Revolutionäre Vakuum-Technologie",
+                "sealit.text1": "Seal it! ist unsere innovative Marke für nachhaltige Vakuumierlösungen. Mit dem EcoSeal Pro vakuumieren Sie Lebensmittel direkt im Glas – umweltfreundlich, schnell und effektiv.",
+                "sealit.text2": "Das Herzstück: Der EcoSeal Pro verlängert die Frische von Lebensmitteln um das 3-5-fache, reduziert Lebensmittelverschwendung und ersetzt herkömmliche Plastik-Vakuumiermethoden.",
+                "highlights.time": "30 Sekunden",
+                "highlights.time.desc": "Vakuumierung pro Glas",
+                "highlights.sustainable": "100% nachhaltig",
+                "highlights.sustainable.desc": "Wiederverwendbare Gläser",
+                "highlights.freshness": "5x länger",
+                "highlights.freshness.desc": "Haltbarkeit verlängert",
+                "sealit.link": "Seal it! entdecken",
+                "contact.title": "Lassen Sie uns sprechen",
+                "contact.subtitle": "Interessiert an einer Partnerschaft? Wir freuen uns auf Ihre Nachricht.",
+                "contact.email": "E-Mail",
+                "contact.address": "Adresse",
+                "footer.copyright": "© 2025 WMI Group. Alle Rechte vorbehalten."
+            }
+        };
+
+        // Initialize language system
+        let currentLanguage = 'en';
+
+        // Detect browser language on first visit
+        function detectBrowserLanguage() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                return savedLang;
+            }
+            
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('de')) {
+                return 'de';
+            }
+            return 'en'; // Default to English
+        }
+
+        // Switch language function
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+            
+            // Update page title
+            const titles = {
+                en: 'WMI Group - Innovation through Quality',
+                de: 'WMI Group - Innovation durch Qualität'
+            };
+            document.title = titles[lang];
+            
+            // Update button states
+            document.querySelectorAll('.language-switcher button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`lang-${lang}`).classList.add('active');
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
         // Initialize AOS
         AOS.init({
             duration: 800,
             easing: 'ease-out-cubic',
             once: true,
             offset: 100
+        });
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const detectedLang = detectBrowserLanguage();
+            switchLanguage(detectedLang);
         });
 
         // Header scroll effect
