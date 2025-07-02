@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WMI Group - E-Commerce Innovationen</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>WMI Group - Innovation durch Qualität</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #0a1525;
+            --primary-light: #1a2332;
+            --accent-color: #00d4aa;
+            --accent-hover: #00b894;
+            --gradient-primary: linear-gradient(135deg, #0a1525 0%, #1a2332 50%, #2d3748 100%);
+            --gradient-accent: linear-gradient(135deg, #00d4aa 0%, #00b894 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(10,21,37,0.9) 0%, rgba(26,35,50,0.8) 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --text-dark: #2d3748;
+            --bg-light: #f7fafc;
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -16,293 +33,574 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-dark);
             background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
         }
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #003366 0%, #0059b3 100%);
-            color: white;
+            background: var(--gradient-primary);
+            color: var(--text-primary);
             padding: 1rem 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        header.scrolled {
+            background: rgba(10, 21, 37, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-soft);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         .logo {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
             letter-spacing: -0.02em;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
-            color: white;
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
-            transition: opacity 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+            transition: all 0.3s ease;
         }
 
-        .nav-links a:hover {
-            opacity: 0.8;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -8px;
+            left: 0;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=2100&q=80');
+            background: var(--gradient-hero), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2100&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             height: 100vh;
             display: flex;
             align-items: center;
             text-align: center;
-            color: white;
-            margin-top: 70px;
+            color: var(--text-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-hero);
+            z-index: 1;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 2rem;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
+            line-height: 1.1;
         }
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            margin-bottom: 3rem;
             opacity: 0.9;
             font-weight: 300;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #ff9300;
-            color: white;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-        }
-
-        .cta-button:hover {
-            background: #ff7b00;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-        }
-
-        /* About Section */
-        .about {
-            padding: 6rem 0;
-            background: #f8f9fa;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 4rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
+        .cta-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 212, 170, 0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--text-primary);
+            box-shadow: none;
+        }
+
+        .cta-secondary:hover {
+            background: var(--accent-color);
+            box-shadow: 0 15px 35px rgba(0, 212, 170, 0.3);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 0;
+            background: var(--bg-light);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-accent);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 6rem;
             align-items: center;
         }
 
         .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            font-weight: 600;
         }
 
         .about-text p {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #555;
-            margin-bottom: 1.5rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            font-weight: 400;
         }
 
-        .about-image {
-            text-align: center;
-        }
-
-        .about-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid #f0f0f0;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: #667eea;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .service-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .contact .section-title {
-            color: white;
-        }
-
-        .contact .section-subtitle {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .contact-info {
+        .about-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .contact-item {
-            padding: 2rem;
-            background: rgba(255,255,255,0.1);
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
             border-radius: 15px;
-            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
         }
 
-        .contact-item i {
-            font-size: 2.5rem;
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            min-width: 50px;
+        }
+
+        .about-image {
+            text-align: center;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 25px;
+            box-shadow: var(--shadow-strong);
+            transition: all 0.4s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Brands Section */
+        .brands {
+            padding: 8rem 0;
+            background: var(--primary-color);
+            color: var(--text-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brands::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .brands .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .brands .section-title {
+            color: var(--text-primary);
+        }
+
+        .brands .section-subtitle {
+            color: var(--text-secondary);
+        }
+
+        .brand-showcase {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brand-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 170, 0.1), transparent);
+            transition: left 2s ease;
+        }
+
+        .brand-showcase:hover::before {
+            left: 100%;
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .brand-logo {
+            text-align: center;
+        }
+
+        .brand-logo h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1rem;
-            color: #ff6b6b;
+            letter-spacing: -0.02em;
         }
 
-        .contact-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+        .brand-tagline {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            font-style: italic;
         }
 
-        .contact-item p {
+        .brand-content h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .brand-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
             opacity: 0.9;
         }
 
-        .contact-item a {
-            color: white;
+        .product-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            background: rgba(0, 212, 170, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(0, 212, 170, 0.2);
+        }
+
+        .highlight-item i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-item h5 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .highlight-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .brand-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
             text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .brand-link:hover {
+            transform: translateX(5px);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 0;
+            background: var(--bg-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .contact-item i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-item p {
+            color: #4a5568;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .contact-item a:hover {
-            color: #ff6b6b;
+            color: var(--accent-hover);
         }
 
         /* Footer */
         footer {
-            background: #2c3e50;
-            color: white;
+            background: var(--primary-color);
+            color: var(--text-primary);
             text-align: center;
-            padding: 3rem 0;
+            padding: 4rem 0 2rem;
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .social-links {
-            margin: 1.5rem 0;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #667eea;
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
         }
 
         /* Responsive Design */
@@ -311,62 +609,88 @@
                 display: none;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .about-grid {
+            .about-grid,
+            .brand-grid {
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
 
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .services-grid {
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
 
-            .contact-info {
+            .cta-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .brand-showcase {
+                padding: 2rem;
+            }
+
+            .product-highlights {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Smooth Scrolling */
+        /* Scroll Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-up.aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax Elements */
+        .parallax-element {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .parallax-circle {
+            width: 300px;
+            height: 300px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            top: 10%;
+            right: -10%;
+            animation: rotate 20s linear infinite;
+        }
+
+        .parallax-square {
+            width: 200px;
+            height: 200px;
+            border: 2px solid var(--accent-color);
+            bottom: 10%;
+            left: -5%;
+            animation: rotate 25s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
-        }
-
-        /* Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header id="header">
         <nav>
             <div class="logo">WMI Group</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">Über uns</a></li>
+                <li><a href="#brands">Unsere Marken</a></li>
                 <li><a href="#contact">Kontakt</a></li>
             </ul>
         </nav>
@@ -374,27 +698,113 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content fade-in-up">
-            <h1>Ihr verlässlicher Business-Partner</h1>
-            <p>Die WMI Group verbindet Marken, Märkte und Menschen.</p>
-            <a href="#contact" class="cta-button">Jetzt anfragen</a>
+        <div class="parallax-element parallax-circle"></div>
+        <div class="parallax-element parallax-square"></div>
+        <div class="hero-content">
+            <h1 data-aos="fade-up" data-aos-delay="200" class="floating">Innovation durch Qualität</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">Die WMI Group verbindet visionäre Marken mit nachhaltigen Lösungen und erschafft Produkte, die das Leben bereichern.</p>
+            <div class="cta-container" data-aos="fade-up" data-aos-delay="600">
+                <a href="#brands" class="cta-button">
+                    <i class="fas fa-rocket"></i>
+                    Unsere Marken entdecken
+                </a>
+                <a href="#contact" class="cta-button cta-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Kontakt aufnehmen
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">Über WMI Group</h2>
-            <p class="section-subtitle">Österreichische Unternehmensgruppe mit Fokus auf Wachstum & Partnerschaft</p>
+            <h2 class="section-title" data-aos="fade-up">Über die WMI Group</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Österreichische Unternehmensgruppe mit Fokus auf Innovation & nachhaltige Partnerschaften</p>
             
             <div class="about-grid">
-                <div class="about-text">
+                <div class="about-text" data-aos="fade-right">
                     <h3>Qualität & Vertrauen</h3>
-                    <p>Die WMI Group bündelt Stärken unterschiedlicher Marken und schafft dadurch nachhaltige Werte.</p>
-                    <p>Unsere Priorität ist langfristige Partnerschaft – mit Kund:innen, Lieferant:innen und Investor:innen.</p>
+                    <p>Die WMI Group bündelt die Stärken innovativer Marken und schafft dadurch nachhaltige Werte für Kunden, Partner und Investoren.</p>
+                    <p>Unsere Priorität liegt in langfristigen Partnerschaften und der kontinuierlichen Entwicklung zukunftsweisender Lösungen, die echten Mehrwert schaffen.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="feature-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h4>Innovation</h4>
+                                <p>Zukunftsweisende Lösungen</p>
+                            </div>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="feature-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4>Partnerschaft</h4>
+                                <p>Langfristige Beziehungen</p>
+                            </div>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h4>Nachhaltigkeit</h4>
+                                <p>Verantwortung für die Zukunft</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Team bei der Arbeit">
+                <div class="about-image" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Unser Team bei der Arbeit">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section id="brands" class="brands">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Unsere Marken</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Innovative Lösungen für den modernen Haushalt</p>
+            
+            <div class="brand-showcase" data-aos="fade-up" data-aos-delay="400">
+                <div class="brand-grid">
+                    <div class="brand-logo">
+                        <h3>Seal it!</h3>
+                        <p class="brand-tagline">Freshness at the push of a button</p>
+                    </div>
+                    <div class="brand-content">
+                        <h4>Revolutionäre Vakuum-Technologie</h4>
+                        <p>Seal it! ist unsere innovative Marke für nachhaltige Vakuumierlösungen. Mit dem EcoSeal Pro vakuumieren Sie Lebensmittel direkt im Glas – umweltfreundlich, schnell und effektiv.</p>
+                        <p>Das Herzstück: Der EcoSeal Pro verlängert die Frische von Lebensmitteln um das 3-5-fache, reduziert Lebensmittelverschwendung und ersetzt herkömmliche Plastik-Vakuumiermethoden.</p>
+                        
+                        <div class="product-highlights">
+                            <div class="highlight-item" data-aos="zoom-in" data-aos-delay="600">
+                                <i class="fas fa-clock"></i>
+                                <h5>30 Sekunden</h5>
+                                <p>Vakuumierung pro Glas</p>
+                            </div>
+                            <div class="highlight-item" data-aos="zoom-in" data-aos-delay="700">
+                                <i class="fas fa-recycle"></i>
+                                <h5>100% nachhaltig</h5>
+                                <p>Wiederverwendbare Gläser</p>
+                            </div>
+                            <div class="highlight-item" data-aos="zoom-in" data-aos-delay="800">
+                                <i class="fas fa-chart-line"></i>
+                                <h5>5x länger</h5>
+                                <p>Haltbarkeit verlängert</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://sealit.shop/" target="_blank" class="brand-link" data-aos="fade-up" data-aos-delay="900">
+                            <span>Seal it! entdecken</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -403,20 +813,20 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Kontakt aufnehmen</h2>
-            <p class="section-subtitle">Lassen Sie uns über Ihr nächstes Projekt sprechen</p>
+            <h2 class="section-title" data-aos="fade-up">Lassen Sie uns sprechen</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Interessiert an einer Partnerschaft? Wir freuen uns auf Ihre Nachricht.</p>
             
-            <div class="contact-info">
-                <div class="contact-item">
+            <div class="contact-grid">
+                <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-envelope"></i>
                     <h3>E-Mail</h3>
                     <p><a href="mailto:info@wmi-group.at">info@wmi-group.at</a></p>
                 </div>
                 
-                <div class="contact-item">
+                <div class="contact-item" data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-map-marker-alt"></i>
                     <h3>Adresse</h3>
-                    <p>Hofgasse 5, 2201 Seyring, Österreich</p>
+                    <p>Hofgasse 5<br>2201 Seyring, Österreich</p>
                 </div>
             </div>
         </div>
@@ -425,12 +835,32 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="logo">WMI Group</div>
+            <div class="footer-logo">WMI Group</div>
             <p>&copy; 2025 WMI Group. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -445,16 +875,26 @@
             });
         });
 
-        // Add scroll effect to header
+        // Parallax effect for hero elements
         window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(0, 51, 102, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #003366 0%, #0059b3 100%)';
-                header.style.backdropFilter = 'none';
-            }
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-element');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.contact-item, .feature-item, .highlight-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         });
     </script>
 </body>
