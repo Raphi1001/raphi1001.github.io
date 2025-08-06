@@ -459,6 +459,20 @@
             text-align: center;
         }
 
+        .brand-logo-img {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 10px 30px rgba(0, 212, 170, 0.3));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .brand-logo-img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 15px 40px rgba(0, 212, 170, 0.4));
+        }
+
         .brand-logo h3 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 3.5rem;
@@ -550,6 +564,45 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             margin-top: 4rem;
+        }
+
+        .contact-single {
+            display: flex;
+            justify-content: center;
+            margin-top: 4rem;
+        }
+
+        .contact-single .contact-item {
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+
+        .contact-link:hover {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contact-link h3 {
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover h3 {
+            color: var(--accent-color);
+        }
+
+        .contact-link p {
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover p {
+            color: var(--accent-hover);
         }
 
         .contact-item {
@@ -655,9 +708,10 @@
         }
 
         .impressum-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: flex;
+            justify-content: center;
             gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .impressum-section {
@@ -666,6 +720,10 @@
             border-radius: 12px;
             border: 1px solid rgba(0, 212, 170, 0.2);
             transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
         }
 
         .impressum-section:hover {
@@ -713,10 +771,6 @@
                 gap: 3rem;
             }
 
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
             .cta-container {
                 flex-direction: column;
                 align-items: center;
@@ -741,19 +795,16 @@
             }
 
             .footer-main {
-                grid-template-columns: 1fr;
                 gap: 2rem;
-                text-align: center;
             }
 
             .impressum-content {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 gap: 1.5rem;
             }
 
             .impressum-section {
                 padding: 1rem;
-                text-align: left;
             }
         }
 
@@ -814,7 +865,7 @@
             <ul class="nav-center">
                 <li><a href="#home" data-translate="nav.home">Home</a></li>
                 <li><a href="#about" data-translate="nav.about">About us</a></li>
-                <li><a href="#brands" data-translate="nav.brands">Our Brands</a></li>
+                <li><a href="#brands" data-translate="nav.brands">Our Brand</a></li>
                 <li><a href="#contact" data-translate="nav.contact">Contact</a></li>
             </ul>
             <div class="language-switcher">
@@ -834,7 +885,7 @@
             <div class="cta-container" data-aos="fade-up" data-aos-delay="600">
                 <a href="#brands" class="cta-button">
                     <i class="fas fa-rocket"></i>
-                    <span data-translate="hero.cta1">Discover Our Brands</span>
+                    <span data-translate="hero.cta1">Discover Our Brand</span>
                 </a>
                 <a href="#contact" class="cta-button cta-secondary">
                     <i class="fas fa-envelope"></i>
@@ -896,19 +947,19 @@
     <!-- Brands Section -->
     <section id="brands" class="brands">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up" data-translate="brands.title">Our Brands</h2>
+            <h2 class="section-title" data-aos="fade-up" data-translate="brands.title">Our Brand</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-translate="brands.subtitle">Innovative solutions for the modern household</p>
             
             <div class="brand-showcase" data-aos="fade-up" data-aos-delay="400">
                 <div class="brand-grid">
                     <div class="brand-logo">
-                        <h3>Seal it!</h3>
-                        <p class="brand-tagline">Freshness at the push of a button</p>
+                        <img src="files/sealit_logo.avif" alt="Seal it! Logo" class="brand-logo-img">
+                        <p class="brand-tagline" data-translate="sealit.tagline">Sustainable kitchen innovations</p>
                     </div>
                     <div class="brand-content">
-                        <h4 data-translate="sealit.heading">Revolutionary Vacuum Technology</h4>
-                        <p data-translate="sealit.text1">Seal it! is our innovative brand for sustainable vacuum sealing solutions. With the EcoSeal Pro, you vacuum seal food directly in glass - environmentally friendly, fast and effective.</p>
-                        <p data-translate="sealit.text2">The core: The EcoSeal Pro extends the freshness of food by 3-5 times, reduces food waste and replaces conventional plastic vacuum sealing methods.</p>
+                        <h4 data-translate="sealit.heading">Nachhaltige Küchenprodukte rund ums Einmachglas</h4>
+                        <p data-translate="sealit.text1">Seal it! ist unsere innovative Marke für nachhaltige Küchenprodukte rund um das traditionelle Einmachglas. Wir entwickeln Lösungen, die Plastik reduzieren und die Küchenarbeit revolutionieren.</p>
+                        <p data-translate="sealit.text2">Unser Flaggschiff: Ein Vakuumiergerät, mit dem Sie herkömmliche Einmachgläser vakuumieren können. So sparen Sie Plastik, verlängern die Haltbarkeit Ihrer Lebensmittel und setzen auf bewährte Glasqualität.</p>
                         
                         <div class="product-highlights">
                             <div class="highlight-item" data-aos="zoom-in" data-aos-delay="600">
@@ -944,18 +995,12 @@
             <h2 class="section-title" data-aos="fade-up" data-translate="contact.title">Let's Talk</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-translate="contact.subtitle">Interested in a partnership? We look forward to your message.</p>
             
-            <div class="contact-grid">
-                <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="contact-single">
+                <a href="mailto:info@wmi-group.at" class="contact-item contact-link" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-envelope"></i>
                     <h3 data-translate="contact.email">Email</h3>
-                    <p><a href="mailto:info@wmi-group.at">info@wmi-group.at</a></p>
-                </div>
-                
-                <div class="contact-item" data-aos="fade-up" data-aos-delay="400">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3 data-translate="contact.address">Address</h3>
-                    <p>Hofgasse 5<br>2201 Seyring, Austria</p>
-                </div>
+                    <p>info@wmi-group.at</p>
+                </a>
             </div>
         </div>
     </section>
@@ -1000,11 +1045,11 @@
             en: {
                 "nav.home": "Home",
                 "nav.about": "About us",
-                "nav.brands": "Our Brands",
+                "nav.brands": "Our Brand",
                 "nav.contact": "Contact",
                 "hero.title": "Innovation through Quality",
                 "hero.subtitle": "WMI Group connects visionary brands with sustainable solutions and creates products that enrich life.",
-                "hero.cta1": "Discover Our Brands",
+                "hero.cta1": "Discover Our Brand",
                 "hero.cta2": "Get in Touch",
                 "about.title": "About WMI Group",
                 "about.subtitle": "Austrian company group focused on innovation & sustainable partnerships",
@@ -1017,11 +1062,12 @@
                 "features.partnership.desc": "Long-term relationships",
                 "features.sustainability": "Sustainability",
                 "features.sustainability.desc": "Responsibility for the future",
-                "brands.title": "Our Brands",
+                "brands.title": "Our Brand",
                 "brands.subtitle": "Innovative solutions for the modern household",
-                "sealit.heading": "Revolutionary Vacuum Technology",
-                "sealit.text1": "Seal it! is our innovative brand for sustainable vacuum sealing solutions. With the EcoSeal Pro, you vacuum seal food directly in glass - environmentally friendly, fast and effective.",
-                "sealit.text2": "The core: The EcoSeal Pro extends the freshness of food by 3-5 times, reduces food waste and replaces conventional plastic vacuum sealing methods.",
+                "sealit.tagline": "Sustainable kitchen innovations",
+                "sealit.heading": "Sustainable Kitchen Products for Preserving Jars",
+                "sealit.text1": "Seal it! is our innovative brand for sustainable kitchen products centered around the traditional preserving jar. We develop solutions that reduce plastic waste and revolutionize kitchen work.",
+                "sealit.text2": "Our flagship product: A vacuum sealer that allows you to vacuum seal conventional preserving jars. This way you save plastic, extend the shelf life of your food, and rely on proven glass quality.",
                 "highlights.time": "30 Seconds",
                 "highlights.time.desc": "Vacuum sealing per jar",
                 "highlights.sustainable": "100% sustainable",
@@ -1046,11 +1092,11 @@
             de: {
                 "nav.home": "Home",
                 "nav.about": "Über uns",
-                "nav.brands": "Unsere Marken",
+                "nav.brands": "Unsere Marke",
                 "nav.contact": "Kontakt",
                 "hero.title": "Innovation durch Qualität",
                 "hero.subtitle": "Die WMI Group verbindet visionäre Marken mit nachhaltigen Lösungen und erschafft Produkte, die das Leben bereichern.",
-                "hero.cta1": "Unsere Marken entdecken",
+                "hero.cta1": "Unsere Marke entdecken",
                 "hero.cta2": "Kontakt aufnehmen",
                 "about.title": "Über die WMI Group",
                 "about.subtitle": "Österreichische Unternehmensgruppe mit Fokus auf Innovation & nachhaltige Partnerschaften",
@@ -1063,11 +1109,12 @@
                 "features.partnership.desc": "Langfristige Beziehungen",
                 "features.sustainability": "Nachhaltigkeit",
                 "features.sustainability.desc": "Verantwortung für die Zukunft",
-                "brands.title": "Unsere Marken",
+                "brands.title": "Unsere Marke",
                 "brands.subtitle": "Innovative Lösungen für den modernen Haushalt",
-                "sealit.heading": "Revolutionäre Vakuum-Technologie",
-                "sealit.text1": "Seal it! ist unsere innovative Marke für nachhaltige Vakuumierlösungen. Mit dem EcoSeal Pro vakuumieren Sie Lebensmittel direkt im Glas – umweltfreundlich, schnell und effektiv.",
-                "sealit.text2": "Das Herzstück: Der EcoSeal Pro verlängert die Frische von Lebensmitteln um das 3-5-fache, reduziert Lebensmittelverschwendung und ersetzt herkömmliche Plastik-Vakuumiermethoden.",
+                "sealit.tagline": "Nachhaltige Kücheninnovationen",
+                "sealit.heading": "Nachhaltige Küchenprodukte rund ums Einmachglas",
+                "sealit.text1": "Seal it! ist unsere innovative Marke für nachhaltige Küchenprodukte rund um das traditionelle Einmachglas. Wir entwickeln Lösungen, die Plastik reduzieren und die Küchenarbeit revolutionieren.",
+                "sealit.text2": "Unser Flaggschiff: Ein Vakuumiergerät, mit dem Sie herkömmliche Einmachgläser vakuumieren können. So sparen Sie Plastik, verlängern die Haltbarkeit Ihrer Lebensmittel und setzen auf bewährte Glasqualität.",
                 "highlights.time": "30 Sekunden",
                 "highlights.time.desc": "Vakuumierung pro Glas",
                 "highlights.sustainable": "100% nachhaltig",
