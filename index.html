@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMI Group - Innovation through Quality</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="files/wmi.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="files/wmi.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="files/wmi.png">
+    <link rel="shortcut icon" href="files/wmi.png">
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -81,10 +88,27 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
             letter-spacing: -0.02em;
+        }
+
+        .logo-img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.1);
+        }
+
+        .logo span {
             background: var(--gradient-accent);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -891,7 +915,10 @@
     <!-- Header -->
     <header id="header">
         <nav>
-            <div class="logo">WMI Group</div>
+            <div class="logo">
+                <img src="files/wmi.png" alt="WMI Group Logo" class="logo-img">
+                <span>WMI Group</span>
+            </div>
             <ul class="nav-center">
                 <li><a href="#home" data-translate="nav.home">Home</a></li>
                 <li><a href="#about" data-translate="nav.about">About us</a></li>
