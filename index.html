@@ -390,6 +390,36 @@
             transform: scale(1.02);
         }
 
+        .about-simple {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .about-simple .about-image {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+            transition: all 0.4s ease;
+        }
+
+        .about-simple .about-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-simple img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .about-simple .about-image:hover img {
+            transform: scale(1.05);
+        }
+
         /* Brands Section */
         .brands {
             padding: 8rem 0;
@@ -899,47 +929,10 @@
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up" data-translate="about.title">About WMI Group</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-translate="about.subtitle">Austrian company group focused on innovation & sustainable partnerships</p>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200" data-translate="about.subtitle">Österreichische Unternehmensgruppe im Bereich E-Commerce mit Fokus auf Innovation & nachhaltige Produkte.</p>
             
-            <div class="about-grid">
-                <div class="about-text" data-aos="fade-right">
-                    <h3 data-translate="about.heading">Quality & Trust</h3>
-                    <p data-translate="about.text1">WMI Group combines the strengths of innovative brands and creates sustainable value for customers, partners and investors.</p>
-                    <p data-translate="about.text2">Our priority lies in long-term partnerships and the continuous development of forward-thinking solutions that create real added value.</p>
-                    
-                    <div class="about-features">
-                        <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
-                            <div class="feature-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <div>
-                                <h4 data-translate="features.innovation">Innovation</h4>
-                                <p data-translate="features.innovation.desc">Forward-thinking solutions</p>
-                            </div>
-                        </div>
-                        <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
-                            <div class="feature-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <div>
-                                <h4 data-translate="features.partnership">Partnership</h4>
-                                <p data-translate="features.partnership.desc">Long-term relationships</p>
-                            </div>
-                        </div>
-                        <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
-                            <div class="feature-icon">
-                                <i class="fas fa-leaf"></i>
-                            </div>
-                            <div>
-                                <h4 data-translate="features.sustainability">Sustainability</h4>
-                                <p data-translate="features.sustainability.desc">Responsibility for the future</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Our team at work">
-                </div>
+            <div class="about-simple" data-aos="fade-up" data-aos-delay="400">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80" alt="Innovation and technology" class="about-image">
             </div>
         </div>
     </section>
@@ -1052,16 +1045,7 @@
                 "hero.cta1": "Discover Our Brand",
                 "hero.cta2": "Get in Touch",
                 "about.title": "About WMI Group",
-                "about.subtitle": "Austrian company group focused on innovation & sustainable partnerships",
-                "about.heading": "Quality & Trust",
-                "about.text1": "WMI Group combines the strengths of innovative brands and creates sustainable value for customers, partners and investors.",
-                "about.text2": "Our priority lies in long-term partnerships and the continuous development of forward-thinking solutions that create real added value.",
-                "features.innovation": "Innovation",
-                "features.innovation.desc": "Forward-thinking solutions",
-                "features.partnership": "Partnership",
-                "features.partnership.desc": "Long-term relationships",
-                "features.sustainability": "Sustainability",
-                "features.sustainability.desc": "Responsibility for the future",
+                "about.subtitle": "Austrian company group in the field of e-commerce with focus on innovation & sustainable products.",
                 "brands.title": "Our Brand",
                 "brands.subtitle": "Innovative solutions for the modern household",
                 "sealit.tagline": "Freshness at the push of a button",
@@ -1099,16 +1083,7 @@
                 "hero.cta1": "Unsere Marke entdecken",
                 "hero.cta2": "Kontakt aufnehmen",
                 "about.title": "Über die WMI Group",
-                "about.subtitle": "Österreichische Unternehmensgruppe mit Fokus auf Innovation & nachhaltige Partnerschaften",
-                "about.heading": "Qualität & Vertrauen",
-                "about.text1": "Die WMI Group bündelt die Stärken innovativer Marken und schafft dadurch nachhaltige Werte für Kunden, Partner und Investoren.",
-                "about.text2": "Unsere Priorität liegt in langfristigen Partnerschaften und der kontinuierlichen Entwicklung zukunftsweisender Lösungen, die echten Mehrwert schaffen.",
-                "features.innovation": "Innovation",
-                "features.innovation.desc": "Zukunftsweisende Lösungen",
-                "features.partnership": "Partnerschaft",
-                "features.partnership.desc": "Langfristige Beziehungen",
-                "features.sustainability": "Nachhaltigkeit",
-                "features.sustainability.desc": "Verantwortung für die Zukunft",
+                "about.subtitle": "Österreichische Unternehmensgruppe im Bereich E-Commerce mit Fokus auf Innovation & nachhaltige Produkte.",
                 "brands.title": "Unsere Marke",
                 "brands.subtitle": "Innovative Lösungen für den modernen Haushalt",
                 "sealit.tagline": "Frische auf Knopfdruck",
