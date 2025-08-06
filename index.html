@@ -627,6 +627,15 @@
             padding: 0 2rem;
         }
 
+        .footer-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
         .footer-logo {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 2rem;
@@ -635,7 +644,61 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 2rem;
+        }
+
+        .footer-impressum h4 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .impressum-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .impressum-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .impressum-section:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 212, 170, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .impressum-section p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .impressum-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .impressum-section strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
         /* Responsive Design */
@@ -675,6 +738,22 @@
             .language-switcher button {
                 padding: 0.2rem 0.5rem;
                 font-size: 0.8rem;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .impressum-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .impressum-section {
+                padding: 1rem;
+                text-align: left;
             }
         }
 
@@ -884,8 +963,32 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">WMI Group</div>
-            <p data-translate="footer.copyright">&copy; 2025 WMI Group. All rights reserved.</p>
+            <div class="footer-main">
+                <div class="footer-logo">WMI Group</div>
+                <div class="footer-impressum">
+                    <h4 data-translate="footer.impressum.title">Legal Information</h4>
+                    <div class="impressum-content">
+                        <div class="impressum-section">
+                            <p><strong data-translate="footer.impressum.operator">Website Operator:</strong></p>
+                            <p>WMI OG</p>
+                            <p data-translate="footer.impressum.registration">Company Registration: 636654g</p>
+                            <p data-translate="footer.impressum.court">Registration Court: Landesgericht Korneuburg</p>
+                        </div>
+                        <div class="impressum-section">
+                            <p><strong data-translate="footer.impressum.address">Business Address:</strong></p>
+                            <p>Hofgasse 5<br>2201 Seyring<br>Austria</p>
+                        </div>
+                        <div class="impressum-section">
+                            <p data-translate="footer.impressum.vat">VAT ID: ATU81281079</p>
+                            <p data-translate="footer.impressum.authority">Trade Authority: Bezirkshauptmannschaft Korneuburg</p>
+                            <p data-translate="footer.impressum.memberships">Memberships: WKÖ, WKNÖ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-translate="footer.copyright">&copy; 2025 WMI OG. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -930,7 +1033,15 @@
                 "contact.subtitle": "Interested in a partnership? We look forward to your message.",
                 "contact.email": "Email",
                 "contact.address": "Address",
-                "footer.copyright": "© 2025 WMI Group. All rights reserved."
+                "footer.copyright": "© 2025 WMI Group. All rights reserved.",
+                "footer.impressum.title": "Legal Information",
+                "footer.impressum.operator": "Website Operator:",
+                "footer.impressum.registration": "Company Registration: 636654g",
+                "footer.impressum.court": "Registration Court: Landesgericht Korneuburg",
+                "footer.impressum.address": "Business Address:",
+                "footer.impressum.vat": "VAT ID: ATU81281079",
+                "footer.impressum.authority": "Trade Authority: Bezirkshauptmannschaft Korneuburg",
+                "footer.impressum.memberships": "Memberships: WKÖ, WKNÖ"
             },
             de: {
                 "nav.home": "Home",
@@ -968,7 +1079,15 @@
                 "contact.subtitle": "Interessiert an einer Partnerschaft? Wir freuen uns auf Ihre Nachricht.",
                 "contact.email": "E-Mail",
                 "contact.address": "Adresse",
-                "footer.copyright": "© 2025 WMI Group. Alle Rechte vorbehalten."
+                "footer.copyright": "© 2025 WMI OG. Alle Rechte vorbehalten.",
+                "footer.impressum.title": "Impressum",
+                "footer.impressum.operator": "Betreiber dieser Website:",
+                "footer.impressum.registration": "Firmenbuchnummer: 636654g",
+                "footer.impressum.court": "Firmenbuchgericht: Landesgericht Korneuburg",
+                "footer.impressum.address": "Unternehmenssitz:",
+                "footer.impressum.vat": "UID-Nummer: ATU81281079",
+                "footer.impressum.authority": "Zuständige Gewerbebehörde: Bezirkshauptmannschaft Korneuburg",
+                "footer.impressum.memberships": "Mitgliedschaften: WKÖ, WKNÖ"
             }
         };
 
