@@ -744,9 +744,27 @@
         }
 
         .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 2rem;
             font-weight: 700;
+        }
+
+        .footer-logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover .footer-logo-img {
+            transform: scale(1.1);
+        }
+
+        .footer-logo span {
             background: var(--gradient-accent);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -1029,7 +1047,10 @@
     <footer>
         <div class="footer-content">
             <div class="footer-main">
-                <div class="footer-logo">WMI Group</div>
+                <div class="footer-logo">
+                    <img src="files/wmi.png" alt="WMI Group Logo" class="footer-logo-img">
+                    <span>WMI Group</span>
+                </div>
                 <div class="footer-impressum">
                     <h4 data-translate="footer.impressum.title">Legal Information</h4>
                     <div class="impressum-content">
