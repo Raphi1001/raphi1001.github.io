@@ -545,6 +545,17 @@
             transition: transform 0.3s ease, filter 0.3s ease;
         }
 
+        .brand-logo-link {
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .brand-logo-link:hover .brand-logo-img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 15px 40px rgba(0, 212, 170, 0.4));
+        }
+
         .brand-logo-img:hover {
             transform: scale(1.05);
             filter: drop-shadow(0 15px 40px rgba(0, 212, 170, 0.4));
@@ -1014,31 +1025,15 @@
             <div class="brand-showcase" data-aos="fade-up" data-aos-delay="400">
                 <div class="brand-grid">
                     <div class="brand-logo">
-                        <img src="files/sealit_logo.avif" alt="Seal it! Logo" class="brand-logo-img">
+                        <a href="https://sealit.shop/" target="_blank" class="brand-logo-link">
+                            <img src="files/sealit_logo.avif" alt="Seal it! Logo" class="brand-logo-img">
+                        </a>
                         <p class="brand-tagline" data-translate="sealit.tagline">Freshness at the push of a button</p>
                     </div>
                     <div class="brand-content">
                         <h4 data-translate="sealit.heading">Nachhaltige Küchenprodukte rund ums Einmachglas</h4>
                         <p data-translate="sealit.text1">Seal it! ist unsere innovative Marke für nachhaltige Küchenprodukte rund um das traditionelle Einmachglas. Wir entwickeln Lösungen, die Plastik reduzieren und die Küchenarbeit revolutionieren.</p>
                         <p data-translate="sealit.text2">Unser Flaggschiff: Ein Vakuumiergerät, mit dem Sie herkömmliche Einmachgläser vakuumieren können. So sparen Sie Plastik, verlängern die Haltbarkeit Ihrer Lebensmittel und setzen auf bewährte Glasqualität.</p>
-                        
-                        <div class="product-highlights">
-                            <div class="highlight-item" data-aos="zoom-in" data-aos-delay="600">
-                                <i class="fas fa-clock"></i>
-                                <h5 data-translate="highlights.time">30 Seconds</h5>
-                                <p data-translate="highlights.time.desc">Vacuum sealing per jar</p>
-                            </div>
-                            <div class="highlight-item" data-aos="zoom-in" data-aos-delay="700">
-                                <i class="fas fa-recycle"></i>
-                                <h5 data-translate="highlights.sustainable">100% sustainable</h5>
-                                <p data-translate="highlights.sustainable.desc">Reusable jars</p>
-                            </div>
-                            <div class="highlight-item" data-aos="zoom-in" data-aos-delay="800">
-                                <i class="fas fa-chart-line"></i>
-                                <h5 data-translate="highlights.freshness">5x longer</h5>
-                                <p data-translate="highlights.freshness.desc">Extended shelf life</p>
-                            </div>
-                        </div>
                         
                         <a href="https://sealit.shop/" target="_blank" class="brand-link" data-aos="fade-up" data-aos-delay="900">
                             <span data-translate="sealit.link">Discover Seal it!</span>
@@ -1121,12 +1116,6 @@
                 "sealit.heading": "Sustainable Kitchen Products for Preserving Jars",
                 "sealit.text1": "Seal it! is our innovative brand for sustainable kitchen products centered around the traditional preserving jar. We develop solutions that reduce plastic waste and revolutionize kitchen work.",
                 "sealit.text2": "Our flagship product: A vacuum sealer that allows you to vacuum seal conventional preserving jars. This way you save plastic, extend the shelf life of your food, and rely on proven glass quality.",
-                "highlights.time": "30 Seconds",
-                "highlights.time.desc": "Vacuum sealing per jar",
-                "highlights.sustainable": "100% sustainable",
-                "highlights.sustainable.desc": "Reusable jars",
-                "highlights.freshness": "5x longer",
-                "highlights.freshness.desc": "Extended shelf life",
                 "sealit.link": "Discover Seal it!",
                 "contact.title": "Let's Talk",
                 "contact.subtitle": "Interested in a partnership? We look forward to your message.",
@@ -1160,12 +1149,6 @@
                 "sealit.heading": "Nachhaltige Küchenprodukte rund ums Einmachglas",
                 "sealit.text1": "Seal it! ist unsere innovative Marke für nachhaltige Küchenprodukte rund um das traditionelle Einmachglas. Wir entwickeln Lösungen, die Plastik reduzieren und die Küchenarbeit revolutionieren.",
                 "sealit.text2": "Unser Flaggschiff: Ein Vakuumiergerät, mit dem Sie herkömmliche Einmachgläser vakuumieren können. So sparen Sie Plastik, verlängern die Haltbarkeit Ihrer Lebensmittel und setzen auf bewährte Glasqualität.",
-                "highlights.time": "30 Sekunden",
-                "highlights.time.desc": "Vakuumierung pro Glas",
-                "highlights.sustainable": "100% nachhaltig",
-                "highlights.sustainable.desc": "Wiederverwendbare Gläser",
-                "highlights.freshness": "5x länger",
-                "highlights.freshness.desc": "Haltbarkeit verlängert",
                 "sealit.link": "Seal it! entdecken",
                 "contact.title": "Lassen Sie uns sprechen",
                 "contact.subtitle": "Interessiert an einer Partnerschaft? Wir freuen uns auf Ihre Nachricht.",
